@@ -7,7 +7,8 @@
 	<table>
 		<tr>
 			<td>User ID:</td>
-			<td><input type="text" name="username" value="${sessionScope.account.username}"/></td>
+			<td><input type="text" name="username" id="registerUsername" value="${sessionScope.account.username}"/></td>
+			<td><span id="usernameTips"></span></td>
 		</tr>
 		<tr>
 			<td>New password:</td>
@@ -24,7 +25,7 @@
 		<tr>
 			<td>CaptchaCode:</td>
 			<td><input type="text" name="captchaCode"></td>
-			<td><img src="${sessionScope.path}"></td>
+			<td><img src="${sessionScope.path}" alt="CaptchaCode"></td>
 		</tr>
 	</table>
 	<label class="ErrorMsg">${requestScope.msg}</label><br>

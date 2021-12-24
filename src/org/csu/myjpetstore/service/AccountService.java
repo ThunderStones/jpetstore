@@ -48,4 +48,8 @@ public class AccountService {
         }
 
     }
+
+    public boolean accountIsExist(String username) {
+        return accountDAO.getAccountByUsername(username) != null;
+    }
 }

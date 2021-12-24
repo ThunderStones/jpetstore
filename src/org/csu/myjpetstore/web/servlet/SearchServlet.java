@@ -1,5 +1,6 @@
 package org.csu.myjpetstore.web.servlet;
 
+import com.alibaba.fastjson.JSON;
 import org.csu.myjpetstore.domain.Account;
 import org.csu.myjpetstore.domain.Item;
 import org.csu.myjpetstore.domain.Log;
@@ -10,6 +11,7 @@ import org.csu.myjpetstore.service.LogService;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 public class SearchServlet extends HttpServlet {
@@ -23,6 +25,7 @@ public class SearchServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         keywords = request.getParameter("keyword");
+        String requestType = request.getParameter("requestType");
         String username;
         if (request.getSession().getAttribute("account") == null)
             username = "";
@@ -32,9 +35,19 @@ public class SearchServlet extends HttpServlet {
         CatalogService service = new CatalogService();
         List<Product> productList = service.searchProductList(keywords);
 
-        HttpSession session = request.getSession();
-        session.setAttribute("productList", productList);
-
-        request.getRequestDispatcher(SEARCH_PRODUCT).forward(request, response);
+        if (!"ajax".equals(requestType)){
+            HttpSession session = request.getSession();
+            session.setAttribute("productList", productList);
+            request.getRequestDispatcher(SEARCH_PRODUCT).forward(request, response);
+        } else {
+            response.setContentType("application/json;charset=UTF-8");
+            PrintWriter out = response.getWriter();
+            String jsonString = JSON.toJSONString(productList);
+            System.out.println(jsonString);
+            out.write(jsonString);
+            System.out.println(jsonString);
+            out.flush();
+            out.close();
+        }
     }
 }

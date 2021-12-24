@@ -25,10 +25,10 @@ public class UpdateCartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
-        Iterator cartItems = cart.getAllCartItems();
+        Iterator<CartItem> cartItems = cart.getAllCartItems();
         Account account = (Account) session.getAttribute("account");
         while (cartItems.hasNext()) {
-            CartItem cartItem = (CartItem) cartItems.next();
+            CartItem cartItem = cartItems.next();
             String itemId = cartItem.getItem().getItemId();
 
             int quantity = Integer.parseInt(request.getParameter(itemId));

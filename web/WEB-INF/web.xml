@@ -83,6 +83,12 @@
         <servlet-name>ViewOrderServlet</servlet-name>
         <servlet-class>org.csu.myjpetstore.web.servlet.ViewOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <servlet-class>org.csu.myjpetstore.web.servlet.UsernameExistServlet</servlet-class>
+    </servlet>
+    
+    
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
         <url-pattern>/main</url-pattern>
@@ -158,5 +164,9 @@
     <servlet-mapping>
         <servlet-name>ViewOrderServlet</servlet-name>
         <url-pattern>/viewOrder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UsernameExistServlet</servlet-name>
+        <url-pattern>/usernameExist</url-pattern>
     </servlet-mapping>
 </web-app>

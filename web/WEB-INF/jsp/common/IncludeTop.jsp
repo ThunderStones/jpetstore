@@ -4,9 +4,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <head>
-    <link rel="StyleSheet" href="css/jpetstore.css" type="text/css"
+    <link rel="stylesheet" href="static/css/jquery-ui.css" type="text/css">
+    <link rel="StyleSheet" href="static/css/jpetstore.css" type="text/css"
           media="screen"/>
 
+<%--    <link rel="stylesheet" href="static/css/jquery-ui.structure.css" type="text/css">--%>
+<%--    <link rel="stylesheet" href="static/css/jquery-ui.theme.css" type="text/css">--%>
+    <script src="static/js/jquery-3.4.1.js"></script>
+    <script src="static/js/jquery-ui.js"></script>
+    <script src="static/js/account.js"></script>
+    <script src="static/js/search.js"></script>
     <meta name="generator"
           content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org"/>
     <title>MyJPetStore</title>
@@ -50,8 +57,8 @@
     <div id="Search">
         <div id="SearchContent">
             <form action="search" method="post">
-                <input type="text" name="keyword" size="14"/> <input type="submit"
-                                                                     name="searchProducts" value="Search"/>
+                <input type="text" name="keyword" size="14" id="searchText" autocomplete="nope"/>
+                <input type="submit" name="searchProducts" value="Search"/>
             </form>
         </div>
     </div>
