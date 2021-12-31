@@ -1,5 +1,7 @@
 package org.csu.myjpetstore.web.servlet;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import org.csu.myjpetstore.domain.Account;
 import org.csu.myjpetstore.domain.Cart;
 import org.csu.myjpetstore.domain.CartItem;
@@ -11,6 +13,7 @@ import org.csu.myjpetstore.service.LogService;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Iterator;
 
 public class UpdateCartServlet extends HttpServlet {
@@ -27,6 +30,7 @@ public class UpdateCartServlet extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
         Iterator<CartItem> cartItems = cart.getAllCartItems();
         Account account = (Account) session.getAttribute("account");
+        JSONArray responseData = new JSONArray();
         while (cartItems.hasNext()) {
             CartItem cartItem = cartItems.next();
             String itemId = cartItem.getItem().getItemId();
@@ -35,11 +39,25 @@ public class UpdateCartServlet extends HttpServlet {
             cart.setQuantityByItemId(itemId, quantity);
             if (quantity < 1) {
                 cartItems.remove();
+            }else if (request.getParameter("requestType").equals("ajax")){
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("itemId", cartItem.getItem().getItemId());
+                jsonObject.put("totalPrice", cartItem.getTotal());
+                responseData.add(jsonObject);
             }
+
         }
         new CartDAOImpl().updateCart(account.getUsername(), SerializeUtil.serialize(cart));
         new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.MODIFY));
-        request.getRequestDispatcher(VIEW_CART).forward(request, response);
+        if (!request.getParameter("requestType").equals("ajax")) {
+            request.getRequestDispatcher(VIEW_CART).forward(request, response);
+        } else {
+            response.setContentType("application/json");
+            PrintWriter out = response.getWriter();
+            out.print(responseData.toJSONString());
+            out.flush();
+            out.close();
+        }
 
     }
 }

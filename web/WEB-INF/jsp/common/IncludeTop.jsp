@@ -14,6 +14,7 @@
     <script src="static/js/jquery-ui.js"></script>
     <script src="static/js/account.js"></script>
     <script src="static/js/search.js"></script>
+    <script src="static/js/cart.js"></script>
     <meta name="generator"
           content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org"/>
     <title>MyJPetStore</title>
@@ -28,7 +29,7 @@
 
 <body>
 
-<div id="Header">
+<div id="Header" style="height: 9ex">
 
     <div id="Logo">
         <div id="LogoContent">
@@ -63,14 +64,17 @@
         </div>
     </div>
 
-    <div id="QuickLinks">
-        <a href="viewCategory?categoryId=FISH"><img src="images/sm_fish.gif"/></a> <img src="images/separator.gif"/>
-        <a href="viewCategory?categoryId=DOGS"><img src="images/sm_dogs.gif"/></a> <img src="images/separator.gif"/>
-        <a href="viewCategory?categoryId=REPTILES"><img src="images/sm_reptiles.gif"/></a> <img src="images/separator.gif"/>
-        <a href="viewCategory?categoryId=CATS"><img src="images/sm_cats.gif"/></a> <img src="images/separator.gif"/>
-        <a href="viewCategory?categoryId=BIRDS"><img src="images/sm_birds.gif"/></a>
-    </div>
+
 
 </div>
-
+<div id="QuickLinks">
+    <nav>
+        <a href="viewCategory?categoryId=FISH">Fish</a>
+        <a href="viewCategory?categoryId=DOGS">Dogs</a>
+        <a href="viewCategory?categoryId=REPTILES">Reptiles</a>
+        <a href="viewCategory?categoryId=CATS">Cats</a>
+        <a href="viewCategory?categoryId=BIRDS">Birds</a>
+        <div class="animation"></div>
+    </nav>
+</div>
 <div id="Content">

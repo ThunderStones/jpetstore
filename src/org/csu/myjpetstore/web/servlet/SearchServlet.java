@@ -43,9 +43,7 @@ public class SearchServlet extends HttpServlet {
             response.setContentType("application/json;charset=UTF-8");
             PrintWriter out = response.getWriter();
             String jsonString = JSON.toJSONString(productList);
-            System.out.println(jsonString);
             out.write(jsonString);
-            System.out.println(jsonString);
             out.flush();
             out.close();
         }

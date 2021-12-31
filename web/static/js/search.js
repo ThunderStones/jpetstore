@@ -42,4 +42,32 @@ $(function () {
 
         }
     })
+
+    $('area').mouseenter((e) => {
+        let area = e.currentTarget;
+        $.ajax({
+            type: 'GET',
+            url: 'previewCategory',
+            data: {categoryId: area.alt.toUpperCase()},
+            success: (data) => {
+                let $previewDiv = $(`<div class="preview" style="top: ${e.clientY}px; left: ${e.clientX}px"><ul></ul></div>`)
+                let $ul = $previewDiv.children(':nth-child(1)')
+                for (let datum of JSON.parse(data)) {
+                    $ul.append(`<li>${datum.description.replaceAll('\\', '')} ${datum.name}</li>`)
+                }
+                $('body').append($previewDiv)
+
+                $('div.preview').mouseleave((e) => {
+                    $('div.preview').remove()
+                })
+                $('div.preview').mouseenter((e) => {
+                    $('div.preview').css('display', 'block')
+                })
+            }
+        })
+    })
+    $('area').mouseleave((e) => {
+            $('div.preview').css('display', 'none')
+    })
+
 });

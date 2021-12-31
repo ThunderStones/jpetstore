@@ -190,9 +190,11 @@ body>#Search {
 }
 
 #QuickLinks {
-  text-align: center;
+  align-content: center;
+  text-align: -webkit-center;
   background-color: #FFF;
   width: 99%;
+  overflow: auto;
 }
 
 #PoweredBy {
@@ -235,6 +237,75 @@ body>#PoweredBy {
 
 body>#Banner {
   height: 9ex;
+}
+
+
+nav {
+  text-align: -webkit-center;
+  position: relative;
+  width: 575px;
+  height: 50px;
+  background-color: #daffe0;
+  border-radius: 8px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+
+  position: relative;
+  display: block;
+  float: left;
+  font-size: 15px;
+  line-height: 50px;
+  width: 100px;
+  height: 50px;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  z-index: 10;
+}
+
+nav a:nth-child(3) {
+  width: 175px;
+}
+nav a:nth-child(5) {
+  clear: right;
+}
+nav .animation {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100px;
+  background-color: #95ff45;
+  z-index: 9;
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+nav a:nth-child(1):hover~.animation {
+  display: block;
+  width: 100px;
+  left: 0px;
+}
+nav a:nth-child(2):hover~.animation {
+  display: block;
+  width: 100px;
+  left: 100px;
+}
+nav a:nth-child(3):hover~.animation {
+  display: block;
+  width: 175px;
+  left: 200px;
+}
+nav a:nth-child(4):hover~.animation {
+  display: block;
+  width: 100px;
+  left: 375px;
+}
+nav a:nth-child(5):hover~.animation {
+  display: block;
+  width: 100px;
+  left: 475px;
 }
 
 #Content {
@@ -330,4 +401,10 @@ body>#Banner {
   padding: .2em .4em;
   margin: .8em 0 .2em;
   line-height: 1.5;
+}
+
+.preview {
+  position: fixed;
+  background-color: #fff;
+
 }
