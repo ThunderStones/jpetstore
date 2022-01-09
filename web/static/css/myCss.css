@@ -1,0 +1,49 @@
+/*area div.preview {*/
+/*    visibility: hidden;*/
+/*    opacity: 0;*/
+/*    transition: opacity 1s;*/
+/*}*/
+
+/*area:hover div.preview{*/
+/*    visibility: visible;*/
+/*    opacity: 100%;*/
+/*    transition: opacity 1s;*/
+
+/*}*/
+
+div.preview {
+    position: fixed;
+    background-color: #fff;
+}
+
+div.preview ul{
+    border-radius: 5px;
+    border: 1px solid #F1F2F3;
+    background-color: #F6F7F8;
+    padding: 0;
+    margin: 0;
+}
+
+div.preview ul li{
+    list-style-type: none;
+    height: 50px;
+    text-align: left;
+}
+
+div.preview ul li a{
+    text-decoration: none;
+
+}
+
+div.preview img {
+    height: 100%;
+    vertical-align: middle;
+}
+
+div.preview ul li:nth-child(2n + 1) {
+    background-color: rgb(246, 247, 248);
+}
+
+div.preview ul li:nth-child(2n) {
+    background-color: white;
+}

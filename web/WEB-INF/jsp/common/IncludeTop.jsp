@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="static/css/jquery-ui.css" type="text/css">
     <link rel="StyleSheet" href="static/css/jpetstore.css" type="text/css"
           media="screen"/>
+    <link rel="stylesheet" href="static/css/myCss.css" type="text/css">
 
 <%--    <link rel="stylesheet" href="static/css/jquery-ui.structure.css" type="text/css">--%>
 <%--    <link rel="stylesheet" href="static/css/jquery-ui.theme.css" type="text/css">--%>
