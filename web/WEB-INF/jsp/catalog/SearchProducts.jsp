@@ -6,9 +6,9 @@
 
 <div id="Catalog">
 
-<table>
-	<tr>
-		<th>&nbsp;</th>
+<table class="searchResult">
+	<tr class="head">
+		<th>Description</th>
 		<th>Product ID</th>
 		<th>Name</th>
 	</tr>

@@ -31,10 +31,11 @@ public class NewOrderServlet extends HttpServlet {
         Account account = (Account) session.getAttribute("account");
 
         new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.ADD));
-        formDataToOrder(request, order);
-        if ("on".equals(request.getParameter("shippingAddressRequired"))) {
-            request.getRequestDispatcher(SHIPPING_FORM).forward(request, response);
-        } else if (!confirmed) {
+
+        if ("true".equals(request.getParameter("inputOrderInfo"))) {
+            formDataToOrder(request, order, "on".equals(request.getParameter("shippingAddressRequired")));
+        }
+        if (!confirmed) {
             request.getRequestDispatcher(CONFIRM_ORDER).forward(request, response);
         } else if (order != null) {
 
@@ -52,7 +53,7 @@ public class NewOrderServlet extends HttpServlet {
 
     }
 
-    private void formDataToOrder(HttpServletRequest request, Order order) {
+    private void formDataToOrder(HttpServletRequest request, Order order, boolean shipping) {
         String data;
         if ((data = request.getParameter("order.cardType")) != null) {
             order.setCardType(data);
@@ -88,30 +89,31 @@ public class NewOrderServlet extends HttpServlet {
             order.setBillCountry(data);
         }
 
-
-        if ((data = request.getParameter("order.shipToFirstName")) != null) {
-            order.setShipToFirstName(data);
-        }
-        if ((data = request.getParameter("order.shipToLastName")) != null) {
-            order.setShipToLastName(data);
-        }
-        if ((data = request.getParameter("order.shipAddress1")) != null) {
-            order.setShipAddress1(data);
-        }
-        if ((data = request.getParameter("order.shipAddress2")) != null) {
-            order.setShipAddress2(data);
-        }
-        if ((data = request.getParameter("order.shipCity")) != null) {
-            order.setShipCity(data);
-        }
-        if ((data = request.getParameter("order.shipState")) != null) {
-            order.setShipState(data);
-        }
-        if ((data = request.getParameter("order.shipZip")) != null) {
-            order.setShipZip(data);
-        }
-        if ((data = request.getParameter("order.shipCountry")) != null) {
-            order.setShipCountry(data);
+        if (shipping){
+            if ((data = request.getParameter("order.shipToFirstName")) != null) {
+                order.setShipToFirstName(data);
+            }
+            if ((data = request.getParameter("order.shipToLastName")) != null) {
+                order.setShipToLastName(data);
+            }
+            if ((data = request.getParameter("order.shipAddress1")) != null) {
+                order.setShipAddress1(data);
+            }
+            if ((data = request.getParameter("order.shipAddress2")) != null) {
+                order.setShipAddress2(data);
+            }
+            if ((data = request.getParameter("order.shipCity")) != null) {
+                order.setShipCity(data);
+            }
+            if ((data = request.getParameter("order.shipState")) != null) {
+                order.setShipState(data);
+            }
+            if ((data = request.getParameter("order.shipZip")) != null) {
+                order.setShipZip(data);
+            }
+            if ((data = request.getParameter("order.shipCountry")) != null) {
+                order.setShipCountry(data);
+            }
         }
     }
 

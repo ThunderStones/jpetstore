@@ -55,8 +55,9 @@ table {
 
 table td, table th {
     border: 1px solid #ddd;
-
+    height: inherit;
     padding: 8px;
+    vertical-align: middle;
 }
 
 table tr:nth-child(even) {
@@ -71,4 +72,24 @@ table th {
     text-align: left;
     background-color: #4caf50;
     color: white;
+}
+
+
+.searchResult tr:not(.head) {
+    height: 80px;
+}
+
+.searchResult tr img {
+    height: 100%;
+    vertical-align: middle;
+}
+
+fieldset {
+    margin-inside: 0;
+    padding-inline: 0;
+    border: 0;
+}
+
+fieldset table {
+    width: 543px;
 }

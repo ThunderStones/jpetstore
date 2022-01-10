@@ -16,6 +16,7 @@
     <script src="static/js/account.js"></script>
     <script src="static/js/search.js"></script>
     <script src="static/js/cart.js"></script>
+    <script src="static/js/order.js"></script>
     <meta name="generator"
           content="HTML Tidy for Linux/x86 (vers 1st November 2002), see www.w3.org"/>
     <title>MyJPetStore</title>
