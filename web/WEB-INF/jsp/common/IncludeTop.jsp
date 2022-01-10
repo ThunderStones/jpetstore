@@ -46,7 +46,7 @@
                 <c:when test="${sessionScope.isAuthenticated eq true}">
                     <a href="signOut">Sign Out</a>
                     <img align="middle" src="images/separator.gif"/>
-                    <a href="editAccountForm">My Account</a>
+                    <a href="editAccountForm">${sessionScope.account.username}</a>
                 </c:when>
                 <c:otherwise>
                     <a href="loginPage">Sign In</a>

@@ -1,31 +1,31 @@
 
 <%@include file="../common/IncludeTop.jsp"%>
-<div id="Welcome">
-    <div id="WelcomeContent">
-        Welcome to MyPetStore!
-    </div>
-    <c:if test="${sessionScope.isAuthenticated}">
-        <div>
-            Hello ${sessionScope.account.username}
-        </div>
-    </c:if>
-</div>
+<%--<div id="Welcome">--%>
+<%--    <div id="WelcomeContent">--%>
+<%--        Welcome to MyPetStore!--%>
+<%--    </div>--%>
+<%--    <c:if test="${sessionScope.isAuthenticated}">--%>
+<%--        <div>--%>
+<%--            Hello ${sessionScope.account.username}--%>
+<%--        </div>--%>
+<%--    </c:if>--%>
+<%--</div>--%>
 
 <div id="Main">
-    <div id="Sidebar">
-        <div id="SidebarContent">
-            <a href="viewCategory?categoryId=FISH"><img src="images/fish_icon.gif" /></a>
-            <br/> Saltwater, Freshwater <br/>
-            <a href="viewCategory?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a>
-            <br /> Various Breeds <br />
-            <a href="viewCategory?categoryId=CATS"><img src="images/cats_icon.gif" /></a>
-            <br /> Various Breeds, Exotic Varieties <br />
-            <a href="viewCategory?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></a>
-            <br /> Lizards, Turtles, Snakes <br />
-            <a href="viewCategory?categoryId=BIRDS"><img src="images/birds_icon.gif" /></a>
-            <br /> Exotic Varieties
-        </div>
-    </div>
+<%--    <div id="Sidebar">--%>
+<%--        <div id="SidebarContent">--%>
+<%--            <a href="viewCategory?categoryId=FISH"><img src="images/fish_icon.gif" /></a>--%>
+<%--            <br/> Saltwater, Freshwater <br/>--%>
+<%--            <a href="viewCategory?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a>--%>
+<%--            <br /> Various Breeds <br />--%>
+<%--            <a href="viewCategory?categoryId=CATS"><img src="images/cats_icon.gif" /></a>--%>
+<%--            <br /> Various Breeds, Exotic Varieties <br />--%>
+<%--            <a href="viewCategory?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></a>--%>
+<%--            <br /> Lizards, Turtles, Snakes <br />--%>
+<%--            <a href="viewCategory?categoryId=BIRDS"><img src="images/birds_icon.gif" /></a>--%>
+<%--            <br /> Exotic Varieties--%>
+<%--        </div>--%>
+<%--    </div>--%>
 
     <div id="MainImage">
         <div id="MainImageContent">

@@ -255,7 +255,7 @@ public class Order implements Serializable {
         return this.lineItems;
     }
 
-    public void initOrder(Account account, Cart cart) {
+    public void  initOrder(Account account, Cart cart) {
         this.username = account.getUsername();
         this.orderDate = new Date();
         this.shipToFirstName = account.getFirstName();

@@ -19,10 +19,10 @@ public class LineItem implements Serializable {
 
     public LineItem(int lineNumber, CartItem cartItem) {
         this.lineNumber = lineNumber;
-        this.quantity = cartItem.getQuantity();
+        setQuantity(cartItem.getQuantity());
         this.itemId = cartItem.getItem().getItemId();
         this.unitPrice = cartItem.getItem().getListPrice();
-        this.item = cartItem.getItem();
+        setItem(cartItem.getItem());
     }
 
     public int getOrderId() {

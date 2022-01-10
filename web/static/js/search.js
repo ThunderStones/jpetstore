@@ -31,16 +31,18 @@ $(function () {
                 url: 'search',
                 data: {requestType: 'ajax', keyword: searchText.val()},
                 success: (data) => {
-                    let arr = [];
                     response($.map(data, item => {
                         console.log(item.name + item.categoryId)
-                        return {label: item.name, category: (item.categoryId).slice(0, 1) + item.categoryId.slice(1).toLowerCase()}
+                        return {label: item.name, category: (item.categoryId).slice(0, 1) + item.categoryId.slice(1).toLowerCase(), id: item.productId}
                     }));
 
                 }
             });
-
+        },
+        select: (event, ui) => {
+            window.location.href = 'viewProduct?productId=' + ui.item.id;
         }
+
     })
 
     $('area').mouseenter((e) => {
@@ -56,19 +58,20 @@ $(function () {
                     return;
                 }
                 let $previewDiv = $(`<div class="preview" style="top: ${e.clientY}px; left: ${e.clientX}px;"><ul></ul></div>`)
-                $previewDiv.slideUp()
+                $previewDiv.slideUp(100, 'swing')
                 let $ul = $previewDiv.children(':nth-child(1)')
                 for (let datum of data) {
-                    $ul.append(`<li><a href="viewProduct?productId=${datum.productId}">${datum.description.replaceAll('\\', '')} ${datum.name}</a></li>`)
+                    let arr = datum.description.match(/(<.*>)(.*)/)
+                    $ul.append(`<li><a href="viewProduct?productId=${datum.productId}">${arr[1].replaceAll('\\', '')}<span><label class="name">${datum.name}</label>: <label class="des">${arr[2]}</label></span></a></li>`)
                 }
                 $(area).append($previewDiv)
-                $previewDiv.slideDown()
+                $previewDiv.slideDown(100, 'swing')
 
                 $(area).mouseleave((e) => {
-                    $('div.preview').slideUp(300, 'swing')
+                    $('div.preview').slideUp(100, 'swing')
                 })
                 $(area).mouseenter((e) => {
-                    $(area).children().slideDown(300, 'swing')
+                    $(area).children().slideDown(100, 'swing')
                 })
             }
         })
@@ -76,36 +79,37 @@ $(function () {
 
 
 
-    $('#SidebarContent a').mouseenter((e) => {
-        let a = e.currentTarget;
-        $.ajax({
-            type: 'GET',
-            url: 'previewCategory',
-            data: {categoryId: a.href.split('=')[1]},
-            success: (data) => {
-                if ($(a).has('div').length === 2) {
-                    $(a).children().css('top', e.clientY)
-                    $(a).children().css('left', e.clientX)
-                    return;
-                }
-                let $previewDiv = $(`<div class="preview" style="top: ${e.clientY}px; left: ${e.clientX}px;"><ul></ul></div>`)
-                $previewDiv.slideUp()
-                let $ul = $previewDiv.children(':nth-child(1)')
-                for (let datum of data) {
-                    $ul.append(`<li><a href="viewProduct?productId=${datum.productId}">${datum.description.replaceAll('\\', '')} ${datum.name}</a></li>`)
-                }
-                $(a).append($previewDiv)
-                $previewDiv.slideDown()
-
-                $(a).mouseleave((e) => {
-                    $('div.preview').slideUp(300, 'swing')
-                })
-                $(a).mouseenter((e) => {
-                    $(a).children().slideDown(300, 'swing')
-                })
-            }
-        })
-    })
+    // $('#SidebarContent a').mouseenter((e) => {
+    //     let a = e.currentTarget;
+    //     $.ajax({
+    //         type: 'GET',
+    //         url: 'previewCategory',
+    //         data: {categoryId: a.href.split('=')[1]},
+    //         success: (data) => {
+    //             if ($(a).has('div').length === 1) {
+    //                 $(a).children().css('top', e.clientY)
+    //                 $(a).children().css('left', e.clientX)
+    //                 return;
+    //             }
+    //             let $previewDiv = $(`<div class="preview" style="top: ${e.clientY}px; left: ${e.clientX}px;"><ul></ul></div>`)
+    //             $previewDiv.slideUp()
+    //             let $ul = $previewDiv.children(':nth-child(1)')
+    //             for (let datum of data) {
+    //                 let arr = datum.description.match(/(<.*>)(.*)/)
+    //                 $ul.append(`<li><a href="viewProduct?productId=${datum.productId}">${arr[1].replaceAll('\\', '')}<span><label class="name">${datum.name}</label>: <label class="des">${arr[2]}</label></span></a></li>`)
+    //             }
+    //             $(a).append($previewDiv)
+    //             $previewDiv.slideDown()
+    //
+    //             $(a).mouseleave((e) => {
+    //                 $('div.preview').slideUp(300, 'swing')
+    //             })
+    //             $(a).mouseenter((e) => {
+    //                 $(a).children().slideDown(300, 'swing')
+    //             })
+    //         }
+    //     })
+    // })
     // $('area').mouseleave((e) => {
     //     let $divPreview = $('div.preview');
     //     if ($divPreview.is(':hover')) {
