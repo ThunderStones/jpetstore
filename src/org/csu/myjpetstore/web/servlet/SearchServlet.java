@@ -31,7 +31,6 @@ public class SearchServlet extends HttpServlet {
             username = "";
         else
             username = ((Account) request.getSession().getAttribute("account")).getUsername();
-        new LogService().addLog(new Log(username, request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
         CatalogService service = new CatalogService();
         List<Product> productList = service.searchProductList(keywords);
 

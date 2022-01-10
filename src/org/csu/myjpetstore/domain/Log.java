@@ -39,7 +39,7 @@ public class Log {
     }
 
     public String getOperate() {
-        return operate.toString();
+        return operate != null ? operate.toString() : "";
 
     }
 

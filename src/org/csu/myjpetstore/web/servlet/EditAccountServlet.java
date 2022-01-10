@@ -20,7 +20,6 @@ public class EditAccountServlet extends HttpServlet {
         request.setCharacterEncoding("utf-8");
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        new LogService().addLog(new Log(account.getUsername(), (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.MODIFY));
 
         if (account == null) {
             request.getRequestDispatcher("loginForm").forward(request, response);

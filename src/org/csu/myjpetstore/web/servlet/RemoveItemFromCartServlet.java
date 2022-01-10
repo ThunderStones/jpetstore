@@ -23,7 +23,6 @@ public class RemoveItemFromCartServlet extends HttpServlet {
         Cart cart = (Cart) session.getAttribute("cart");
         Account account = (Account) session.getAttribute("account");
         Item item = cart.removeItemById(workingItemId);
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.DELETE));
         new CartDAOImpl().updateCart(account.getUsername(), SerializeUtil.serialize(cart));
         if (item == null) {
             session.setAttribute("msg", "Attempted to remove null CartItem from Cart.");

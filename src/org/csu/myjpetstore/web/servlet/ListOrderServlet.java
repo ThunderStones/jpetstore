@@ -20,7 +20,6 @@ public class ListOrderServlet extends HttpServlet {
             request.getRequestDispatcher("main").forward(request, response);
             return;
         }
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
         List<Order> orderList = new OrderService().getOrderByUsername(account.getUsername());
         request.getSession().setAttribute("orderList", orderList);
         request.getRequestDispatcher(LIST_ORDER).forward(request, response);

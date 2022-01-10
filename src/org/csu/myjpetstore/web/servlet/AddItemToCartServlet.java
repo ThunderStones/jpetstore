@@ -21,10 +21,8 @@ public class AddItemToCartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         workingItemId = request.getParameter("workingItemId");
         catalogService = new CatalogService();
-        LogService logService = new LogService();
         Cart cart = (Cart) request.getSession().getAttribute("cart");
         Account account = (Account) request.getSession().getAttribute("account");
-        new LogService().addLog(new Log(account != null ? account.getUsername() : "", request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
 
 //        logService.addLog(new Log(account.getUsername(), getServletContext().getContextPath()));
 //        boolean isAuth = (boolean) request.getSession().getAttribute("isAuthenticated");

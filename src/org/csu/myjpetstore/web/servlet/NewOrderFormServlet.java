@@ -29,7 +29,6 @@ public class NewOrderFormServlet extends HttpServlet {
         session.setAttribute("shippingAddressRequired", false);
         session.setAttribute("confirmed", false);
         session.setAttribute("orderList", null);
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
         if (account == null) {
             request.setAttribute("msg", "You must sign on before attempting to add it to cart.  Please sign on and try checking out again.");
             request.getRequestDispatcher("loginPage").forward(request, response);

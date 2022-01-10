@@ -30,7 +30,6 @@ public class ViewItemServlet extends HttpServlet {
             username = "";
         else
             username = ((Account) request.getSession().getAttribute("account")).getUsername();
-        new LogService().addLog(new Log(username, request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
         request.getRequestDispatcher(VIEW_ITEM).forward(request, response);
     }
 

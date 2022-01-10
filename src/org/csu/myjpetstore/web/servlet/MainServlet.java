@@ -30,7 +30,6 @@ public class MainServlet extends HttpServlet {
         cardList.add("Visa");
         cardList.add("MasterCard");
         cardList.add("American Express");
-        new LogService().addLog(new Log("", request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
         request.getSession().setAttribute("languages", languages);
         request.getSession().setAttribute("categories", categories);
         request.getSession().setAttribute("creditCardTypes", cardList);

@@ -18,7 +18,6 @@ public class ViewLoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        new LogService().addLog(new Log("", request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
         File outputFile = new File(getServletContext().getRealPath("") + "image.jpg");
         if (!outputFile.exists()) {
             outputFile.mkdirs();

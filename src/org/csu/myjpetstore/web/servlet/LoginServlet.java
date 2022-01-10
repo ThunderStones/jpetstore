@@ -42,7 +42,6 @@ public class LoginServlet extends HttpServlet {
         username = request.getParameter("username");
         password = request.getParameter("password");
         account = accountService.getAccount(username, password);
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
         if (account == null) {
             request.setAttribute("msg", "Invalid username or password.  Signon failed.");
             account = new Account();

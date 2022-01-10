@@ -14,7 +14,6 @@ public class SignOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
         session.setAttribute("isAuthenticated", false);
         session.setAttribute("account", null);
         session.setAttribute("myList", null);

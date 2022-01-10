@@ -62,7 +62,6 @@ public class RegisterServlet extends HttpServlet {
         account.setListOption("on".equals(request.getParameter("account.listOption")));
         account.setBannerOption("on".equals(request.getParameter("account.bannerOption")));
 
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + request.getQueryString(), Log.operation.QUERY));
 
         request.getSession().setAttribute("account", account);
         request.setAttribute("repeatedPassword", repeatedPassword);
@@ -80,7 +79,6 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("msg", "Two input password must be consistent");
             request.getRequestDispatcher(REGISTER_PAGE).forward(request, response);
         }else {
-            new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.ADD));
 
             AccountService accountService = new AccountService();
             accountService.insertAccount(account);

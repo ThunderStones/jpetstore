@@ -48,7 +48,6 @@ public class UpdateCartServlet extends HttpServlet {
 
         }
         new CartDAOImpl().updateCart(account.getUsername(), SerializeUtil.serialize(cart));
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.MODIFY));
         if (!request.getParameter("requestType").equals("ajax")) {
             request.getRequestDispatcher(VIEW_CART).forward(request, response);
         } else {

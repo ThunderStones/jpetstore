@@ -28,7 +28,6 @@ public class ViewProductServlet extends HttpServlet {
             username = "";
         else
             username = ((Account) request.getSession().getAttribute("account")).getUsername();
-        new LogService().addLog(new Log(username, request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
 
         HttpSession session = request.getSession();
         session.setAttribute("product", product);

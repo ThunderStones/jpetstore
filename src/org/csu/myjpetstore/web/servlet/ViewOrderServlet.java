@@ -20,7 +20,6 @@ public class ViewOrderServlet extends HttpServlet {
         Order order = new OrderService().getOrder(Integer.parseInt(request.getParameter("orderId")));
         session.setAttribute("order", order);
 
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.QUERY));
         if (account.getUsername().equals(order.getUsername())) {
             request.getRequestDispatcher(VIEW_ORDER).forward(request, response);
         } else {
