@@ -14,7 +14,7 @@ public class UsernameExistServlet extends HttpServlet {
         String username = request.getParameter("username");
         response.setContentType("text/plain");
         PrintWriter printWriter = response.getWriter();
-        if (new AccountService().accountIsExist(username)) {
+        if (username.isEmpty() || new AccountService().accountIsExist(username)) {
             printWriter.write("Exist");
         } else{
             printWriter.write("Not Exist");
