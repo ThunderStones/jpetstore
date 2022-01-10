@@ -1,5 +1,6 @@
 $(function () {
     $('#registerUsername').blur(() => {
+        if ($('#registerUsername').val() === '') return;
         $.ajax({
             type : 'GET',
             url: 'usernameExist?username=' + $('#registerUsername').val(),
