@@ -30,7 +30,7 @@ public class NewOrderServlet extends HttpServlet {
         boolean confirmed = (boolean) session.getAttribute("confirmed");
         Account account = (Account) session.getAttribute("account");
 
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.ADD));
+        new LogService().addLog(new Log(account != null ? account.getUsername() : "", request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.ADD));
 
         if ("true".equals(request.getParameter("inputOrderInfo"))) {
             formDataToOrder(request, order, "on".equals(request.getParameter("shippingAddressRequired")));

@@ -14,7 +14,7 @@ public class EditAccountFormServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         Account account = (Account) session.getAttribute("account");
-        new LogService().addLog(new Log(account.getUsername(), request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
+        new LogService().addLog(new Log(account != null ? account.getUsername() : "", request.getRequestURI() + " " + (request.getQueryString() == null ? "" : request.getQueryString()), Log.operation.NULL));
 
         if (account == null) {
             request.getRequestDispatcher("loginForm").forward(request, response);
