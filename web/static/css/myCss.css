@@ -124,5 +124,79 @@ div.ui-menu-item-wrapper {
 
 #catalog h2{
     clear: both;
+}
 
+div.login  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    padding: 40px;
+    margin: auto;
+    background-color: white;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+}
+
+div.login h2 {
+    margin-bottom: 30px;
+}
+
+div.login div.loginBox {
+    position: relative;
+    width: 100%;
+}
+
+div.login div.loginBox input{
+    outline: none;
+    border: none;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 30px;
+    color: black;
+    font-size: 16px;
+    border-bottom: 1px solid black;
+}
+
+div.login div.loginBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    pointer-events: none;
+    transition: all 0.5s;
+    color: grey;;
+}
+
+div.login div.loginBox input:focus + label ,
+div.login div.loginBox input:valid + label {
+    top: -20px;
+    color: #005e21;
+    font-size: 12px;
+
+}
+
+div.login input.loginButton {
+    position: relative;
+    padding: 10px 20px;
+    color: #005e21;
+    border: 0;
+    background-color: white;
+    transition: all 0.5s;
+}
+
+div.login input.loginButton:hover {
+    color: white;
+    border-radius: 5px;
+    background-color: #079437;
+    box-shadow: 0 0 5px #079437, 0 0 25px #079437, 0 0 50px #079437, 0 0 100px #079437;
+}
+
+input[name='captchaCode'] {
+    width: 78% !important;
 }

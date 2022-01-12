@@ -2,13 +2,19 @@
 
 <div id="Catalog">
     <form action="login" method="post">
-        <p>Please enter your username and password.</p>
-        <p>Username:<input type="text" name="username" value="j2ee"/> <br/>
-            Password:<input type="password" name="password" value="j2ee"/><br/>
-        CaptchaCode:<input type="text" name="captchaCode"><br>
-            <img src="image.jpg"></p>
-        <font color="red">${msg}</font><br>
-        <input type="submit" name="signon" value="Login"/>
+        <div class="login">
+            <h2>Login</h2>
+            <div class="loginBox">
+                <input type="text" name="username" value="j2ee" required/><label>Username</label>
+            </div>
+            <div class="loginBox">
+                <input type="password" name="password" value="j2ee" required/><label>Password</label></div>
+            <div class="loginBox">
+                <input type="text" name="captchaCode" required><label>CaptchaCode</label><img src="image.jpg">
+            </div>
+            <font color="red">${msg}</font><br>
+            <input type="submit" name="signon" value="Login" class="loginButton"/>
+        </div>
     </form>
     Need a user name and password? <a href="registerPage">Register Now!</a>
 </div>
