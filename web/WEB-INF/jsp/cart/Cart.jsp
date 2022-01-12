@@ -88,4 +88,8 @@
     <div id="Separator">&nbsp;</div>
 </div>
 
+<div id="dialog" style="display: none">
+    <p>Quantity is not a number!!</p>
+</div>
+
 <%@ include file="../common/IncludeBottom.jsp" %>
