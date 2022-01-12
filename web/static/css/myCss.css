@@ -93,3 +93,12 @@ fieldset {
 fieldset table {
     width: 543px;
 }
+
+.ui-autocomplete-category {
+    border-bottom: 2px solid #4caf50;
+}
+
+div.ui-menu-item-wrapper {
+    margin-left: 10px;
+    font-size: 18px;
+}

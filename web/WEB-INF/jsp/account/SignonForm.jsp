@@ -6,7 +6,7 @@
         <p>Username:<input type="text" name="username" value="j2ee"/> <br/>
             Password:<input type="password" name="password" value="j2ee"/><br/>
         CaptchaCode:<input type="text" name="captchaCode"><br>
-            <img src="${sessionScope.path}"></p>
+            <img src="image.jpg"></p>
         <font color="red">${msg}</font><br>
         <input type="submit" name="signon" value="Login"/>
     </form>

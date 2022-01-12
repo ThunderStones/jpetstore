@@ -25,7 +25,7 @@
 		<tr>
 			<td>CaptchaCode:</td>
 			<td><input type="text" name="captchaCode"></td>
-			<td><img src="${sessionScope.path}" alt="CaptchaCode"></td>
+			<td><img src="image.jpg" alt="CaptchaCode"></td>
 		</tr>
 	</table>
 	<label class="ErrorMsg">${requestScope.msg}</label><br>
