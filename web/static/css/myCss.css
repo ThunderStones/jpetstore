@@ -102,3 +102,27 @@ div.ui-menu-item-wrapper {
     margin-left: 10px;
     font-size: 18px;
 }
+
+#BackLink {
+    border-width: 0;
+    background-color: #79be89;
+    border-radius: 10px 0 0 10px;
+}
+
+#BackLink:hover {
+    background-color: #4caf50;
+}
+
+#BackLink a {
+    color: #003399;
+}
+
+#BackLink a:hover{
+    color: #003399;
+
+}
+
+#catalog h2{
+    clear: both;
+
+}
