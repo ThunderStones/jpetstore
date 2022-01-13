@@ -25,11 +25,6 @@ public class ViewItemServlet extends HttpServlet {
         HttpSession session = request.getSession();
         session.setAttribute("product", product);
         session.setAttribute("item", item);
-        String username;
-        if (request.getSession().getAttribute("account") == null)
-            username = "";
-        else
-            username = ((Account) request.getSession().getAttribute("account")).getUsername();
         request.getRequestDispatcher(VIEW_ITEM).forward(request, response);
     }
 

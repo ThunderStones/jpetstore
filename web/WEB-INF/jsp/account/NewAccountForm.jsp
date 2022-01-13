@@ -29,7 +29,7 @@
 		</tr>
 	</table>
 	<label class="ErrorMsg">${requestScope.msg}</label><br>
-	<input type="submit" name="newAccount" value="Save Account Information" />
+	<input type="submit" name="newAccount" value="Register" />
 
 </form></div>
 

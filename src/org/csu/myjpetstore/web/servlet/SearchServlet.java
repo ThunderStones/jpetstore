@@ -26,11 +26,6 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         keywords = request.getParameter("keyword");
         String requestType = request.getParameter("requestType");
-        String username;
-        if (request.getSession().getAttribute("account") == null)
-            username = "";
-        else
-            username = ((Account) request.getSession().getAttribute("account")).getUsername();
         CatalogService service = new CatalogService();
         List<Product> productList = service.searchProductList(keywords);
 

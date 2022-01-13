@@ -19,7 +19,7 @@
                     <a href="viewProduct?productId=${product.productId}">${product.productId}</a>
                 </td>
                 <td>
-                    ${product.name}
+                        ${product.name}
                 </td>
             </tr>
         </c:forEach>

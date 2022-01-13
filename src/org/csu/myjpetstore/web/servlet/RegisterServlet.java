@@ -72,7 +72,7 @@ public class RegisterServlet extends HttpServlet {
         ) {
             request.setAttribute("msg", "Please fill all line.");
             request.getRequestDispatcher(REGISTER_PAGE).forward(request, response);
-        } else if (!email.matches("^(\\w+([-.][A-Za-z0-9]+)*){3,18}@\\w+([-.][A-Za-z0-9]+)*\\.\\w+([-.][A-Za-z0-9]+)*$")) {
+        } else if (!email.matches("^(\\w+([-.][A-Za-z0-9]+)*){3,18}@\\w+([-.][A-Za-z0-9]+)*\\.\\w+([-.][A-Za-z0-9]+)*$") && false) {
             request.setAttribute("msg", "Incorrect email.");
             request.getRequestDispatcher(REGISTER_PAGE).forward(request, response);
         } else if (!repeatedPassword.equals(password)) {

@@ -22,13 +22,6 @@ public class ViewProductServlet extends HttpServlet {
         CatalogService catalogService = new CatalogService();
         Product product = catalogService.getProduct(productId);
         List<Item> itemList = catalogService.getItemListByProduct(productId);
-
-        String username;
-        if (request.getSession().getAttribute("account") == null)
-            username = "";
-        else
-            username = ((Account) request.getSession().getAttribute("account")).getUsername();
-
         HttpSession session = request.getSession();
         session.setAttribute("product", product);
         session.setAttribute("itemList", itemList);
