@@ -27,7 +27,7 @@ $(function () {
     let inputText = $('#Cart label>input[type="text"]')
 
     let tr = $('#cart tbody tr')
-    inputText.blur((e) => {
+    inputText.on('blur', (e) => {
         let valid = true
         $.each(inputText, (i, v) => {
             console.log($(v).val())
